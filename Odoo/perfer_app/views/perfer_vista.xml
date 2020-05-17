@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="vista_formulari_perfer_tasca" model="ir.ui.view">
+        <field name="name">Formulari Tasca Per Fer</field>
+        <field name="model">perfer.tasca</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <!-- Buttons go here-->
+                    <button name="esborrar_fet" type="object"
+                    string="Esborrar fet" />
+                </header>
+                <sheet>
+                    <group name="grup_extern">
+                        <group name="grup_esquerra">
+                            <field name="name" />
+                            <field name="user_id" />
+                            <field name="is_done" />
+                        </group>
+                        <group name="grup_dreta">
+                            <field name="date_deadline" />
+                            <field name="team_ids" widget="many2many_tags" />
+                            <field name="active" readonly="1" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="vista_arbre_perfer_tasca" model="ir.ui.view">
+        <field name="name">Arbre Tasca Per Fer</field>
+        <field name="model">perfer.tasca</field>
+        <field name="arch" type="xml">
+            <tree colors="decoration-muted:is_done==True">
+                <field name="name"/>
+                <field name="is_done"/>
+            </tree>
+        </field>
+    </record>
+    <record id="vista_filtre" model="ir.ui.view">
+        <field name="name">Filtre Tasca Per Fer</field>
+        <field name="model">perfer.tasca</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="user_id"/>
+                <filter string="No està fet"
+                    domain="[('is_done','=',False)]"/>
+                <filter string="Fet"
+                    domain="[('is_done','!=',False)]"/>
+            </search>
+        </field>
+    </record>
+</odoo>

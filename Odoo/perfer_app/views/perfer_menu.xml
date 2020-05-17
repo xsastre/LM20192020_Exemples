@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Action to open To-do Task list -->
+    <act_window id="accio_perfer_tasca"
+        name="Tasca Per Fer"
+        res_model="perfer.tasca"
+        view_mode="tree,form"
+    />
+    <!-- Menu item to open To-do Task list -->
+    <menuitem id="menu_perfer_tasca"
+        name="Tots"
+        action="accio_perfer_tasca"
+    />
+</odoo>
